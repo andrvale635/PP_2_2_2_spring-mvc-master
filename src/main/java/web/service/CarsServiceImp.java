@@ -9,10 +9,14 @@ import web.dao.CarsDAOImpl;
 @Service
 public class CarsServiceImp implements CarsService{
     @Autowired
-    CarsDAOImpl carsDAO;
+    private CarsDAOImpl carsDAO;
 
     @Override
     public String getCar(ModelMap model, String c) {
-        return carsDAO.getCar(model, c);
+        if (c == null || Integer.parseInt(c) >= 5) {
+            return carsDAO.getAllCars(model);
+        } else {
+            return carsDAO.getCar(model, c);
+        }
     }
 }
