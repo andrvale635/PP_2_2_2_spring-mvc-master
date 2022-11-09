@@ -2,7 +2,6 @@ package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 
 import web.cars.Car;
 import web.dao.CarsDAOImpl;
@@ -26,21 +25,6 @@ public class CarsServiceImp implements CarsService{
         list.add(new Car(5, "LandRover", 67));
     }
 
-/////////////////////////////////////////////////////// Version 1 ////////////////////////////////////////
-//    @Override
-//    public String getCar(ModelMap model, Integer c) {
-//        if (c == null || c >= 5) {
-//            return carsDAO.getCar(list, model);
-//        } else {
-//            List<Car> list1 = list.stream().limit(c).toList();
-//            return carsDAO.getCar(list1, model);
-//        }
-//    }
-
-
-
-
-/////////////////////////////////////////////////////// Version 2 ////////////////////////////////////////
 
     @Override
     public List<Car> getCar(Integer c) {
