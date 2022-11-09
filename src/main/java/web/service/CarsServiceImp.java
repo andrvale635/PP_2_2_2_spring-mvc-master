@@ -6,32 +6,19 @@ import org.springframework.stereotype.Service;
 import web.cars.Car;
 import web.dao.CarsDAOImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CarsServiceImp implements CarsService{
+public class CarsServiceImp implements CarsService {
     @Autowired
     private CarsDAOImpl carsDAO;
-
-    private List<Car> list;
-
-    public CarsServiceImp(){
-        list = new ArrayList<>();
-        list.add(new Car(1, "BMW", 12));
-        list.add(new Car(2, "Nisan", 1));
-        list.add(new Car(3, "Lada", 31));
-        list.add(new Car(4, "Ford", 123));
-        list.add(new Car(5, "LandRover", 67));
-    }
-
 
     @Override
     public List<Car> getCar(Integer c) {
         if (c == null || c >= 5) {
-            return list;
+            return carsDAO.getCar();
         } else {
-            List<Car> list1 = list.stream().limit(c).toList();
+            List<Car> list1 = carsDAO.getCar().stream().limit(c).toList();
             return list1;
         }
     }
