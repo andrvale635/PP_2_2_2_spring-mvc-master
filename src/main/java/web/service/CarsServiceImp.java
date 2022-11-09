@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.cars.Car;
+import web.dao.CarsDAO;
 import web.dao.CarsDAOImpl;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 public class CarsServiceImp implements CarsService {
     @Autowired
-    private CarsDAOImpl carsDAO;
+    private CarsDAO carsDAO = new CarsDAOImpl();
 
     @Override
     public List<Car> getCar(Integer c) {
