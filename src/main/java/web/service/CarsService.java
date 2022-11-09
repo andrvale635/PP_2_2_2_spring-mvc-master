@@ -1,6 +1,5 @@
 package web.service;
 
-import org.springframework.ui.ModelMap;
 import web.cars.Car;
 
 import java.util.List;

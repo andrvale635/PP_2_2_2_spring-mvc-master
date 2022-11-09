@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public class CarsDAOImpl implements CarsDAO {
 
-
     private List<Car> list;
 
     public CarsDAOImpl() {
